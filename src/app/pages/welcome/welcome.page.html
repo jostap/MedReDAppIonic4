@@ -1,9 +1,36 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>welcome</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
+<ion-content padding id="login">
+  <div align="center">
+      <img src="assets/imgs/vizzdat_logo.PNG" class="logo" />
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">        
+      <ion-item>  
+          <ion-label class="font-form-label" fixed>Username:</ion-label>
+          <ion-input formControlName="username" 
+              placeholder="Enter your username" class="x" 
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your username'" class="font-form-input">
+          </ion-input>           
+      </ion-item>
+      <!-- <ion-item *ngIf="!loginForm.controls.username.valid  && loginForm.controls.username.dirty">
+          <p text-wrap class="msg">Ange 7 siffrig Studie ID</p>
+      </ion-item> -->
+      <ion-item>    
+          <ion-label class="font-form-label" fixed>Password:</ion-label>
+          <ion-input formControlName="password" 
+              placeholder="Enter your password" 
+              onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Enter your password'" class="font-form-input" style="-webkit-text-security:disc">
+          </ion-input>
+      </ion-item>
+      <!-- <ion-item *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+          <p text-wrap class="msg">Ange 4 siffrig PIN-kod</p>
+      </ion-item> -->
+      <button ion-button block [disabled]="!loginForm.valid" color="primary-ki" class="marginTop">Log in</button>
+  </form>
+  
+  <!-- <div [hidden]="errMess">
+    <h2><ion-spinner name="ios"></ion-spinner></h2>
+    <h4>LIMS startas, vänligen vänta ... </h4>
+  </div> -->
 
 </ion-content>
